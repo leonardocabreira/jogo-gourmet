@@ -1,0 +1,12 @@
+package model;
+
+public class Categoria  extends Generic {
+
+	public Categoria(String descricao) {
+		
+		super(descricao);
+		
+	}
+
+	
+}

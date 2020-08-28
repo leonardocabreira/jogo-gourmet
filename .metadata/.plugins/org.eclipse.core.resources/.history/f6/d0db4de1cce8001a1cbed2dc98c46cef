@@ -1,0 +1,28 @@
+package main;
+
+
+import controller.EngineGame;
+import view.Mensageiro;
+
+/**
+*
+* @author Leonardo Cabreira
+*/
+public class Principal {
+
+
+    public static void main(String[] args) {
+        EngineGame Engine = new EngineGame();
+        
+        
+        while(Mensageiro.mensagem("Pense em um prato que você gosta.", "JogoGourmet", "Iniciar", "Cancelar")==0) {        	
+        	Engine.start();	
+        }
+        
+        
+        
+        
+       
+    }
+    
+}

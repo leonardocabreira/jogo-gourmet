@@ -1,0 +1,16 @@
+package model;
+
+/**
+*
+* @author Leonardo Cabreira
+*/
+public class Categoria  extends Generic {
+
+	public Categoria(String descricao) {
+		
+		super(descricao);
+		
+	}
+
+	
+}

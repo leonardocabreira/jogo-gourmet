@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="model.ElementoGourmet"/>
+    <fullyQualifiedTypeName name="util.FactoryGame"/>
+    <fullyQualifiedTypeName name="view.Mensageiro"/>
+    <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+    <fullyQualifiedTypeName name="model.Generic"/>
+    <fullyQualifiedTypeName name="controller.test.JUnit5Test"/>
+    <fullyQualifiedTypeName name="model.Categoria"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
+    <fullyQualifiedTypeName name="org.junit.jupiter.api.DisplayName"/>
+    <fullyQualifiedTypeName name="model.No"/>
+    <fullyQualifiedTypeName name="model.Prato"/>
+    <fullyQualifiedTypeName name="controller.EngineGame"/>
+</qualifiedTypeNameHistroy>

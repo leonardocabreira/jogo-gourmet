@@ -1,0 +1,16 @@
+package model;
+/**
+*
+* @author Leonardo Cabreira
+*/
+
+public class Prato extends Generic{
+
+	
+	public Prato(String descricao) {
+		super(descricao);
+		
+	}
+
+	
+}

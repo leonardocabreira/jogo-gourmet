@@ -1,0 +1,48 @@
+package view;
+
+import javax.swing.JOptionPane;
+
+public class ViewGourmet {
+
+    public static void mensagem(String mensagem, String titulo) {
+        JOptionPane.showMessageDialog(
+                null,
+                mensagem, 
+                titulo,
+                JOptionPane.INFORMATION_MESSAGE
+        );
+    }
+    
+    public static boolean Perguntar(String descricao) {
+    	String[] opcoes = { "SIM", "NAO" };
+		int resposta = JOptionPane.showOptionDialog(null
+				                                  , "O prato que você pensou é " + descricao +"?"
+				                                  , "Confirmar"
+				                                  , JOptionPane.DEFAULT_OPTION
+				                                  , JOptionPane.QUESTION_MESSAGE
+				                                  , null
+				                                  , opcoes
+				                                  , opcoes[0]);
+		
+		return resposta == 0 ? true : false;
+    }
+    
+    public static String showPerguntaNovoPrato(){
+        return JOptionPane.showInputDialog(
+                null,
+                "Qual prato vocÃª pensou?", 
+                "Jogo Gourmet",
+                JOptionPane.QUESTION_MESSAGE
+        );
+    }
+    
+    public static String showPerguntaDiferenca(String novoDesc, String atualDesc){
+        return JOptionPane.showInputDialog(
+                null,
+                novoDesc + " Ã© ________ mas " + atualDesc + " nÃ£o.", 
+                "Jogo Gourmet",
+                JOptionPane.QUESTION_MESSAGE
+        );
+    }
+    
+}

@@ -1,0 +1,34 @@
+package model;
+
+
+public class No {
+    
+    private String descricao;
+    private No sim;
+    private No nao;
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public No getSim() {
+        return sim;
+    }
+
+    public void setSim(No sim) {
+        this.sim = sim;
+    }
+
+    public No getNao() {
+        return nao;
+    }
+
+    public void setNao(No nao) {
+        this.nao = nao;
+    }
+    
+}

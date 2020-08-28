@@ -1,0 +1,87 @@
+package controller;
+import model.Categoria;
+import model.No;
+import model.Prato;
+import util.FactoryGame;
+import view.Mensageiro;
+
+
+/**
+*
+* @author Leonardo Cabreira
+*/
+public class EngineGame {
+
+	private No raiz;
+
+	public EngineGame() {
+		raiz = FactoryGame.factoryGame();
+	}
+	
+
+	public void start() {
+
+		proximoNo(raiz);
+
+	}
+	
+
+	public No proximoNo(No atual) {
+		
+		
+		No novoRamo;
+		
+		
+		if (Mensageiro.perguntar(atual.getObjetoGenerico().getDescricao())) {
+		
+			if (atual.getDireita() == null) {
+				Mensageiro.mensagem("Acertei Novamente!", "Jogo Gourmet", "OK", "Cancelar");
+				novoRamo = null;
+				
+			} else {
+				novoRamo = proximoNo(atual.getDireita());
+				if (novoRamo != null) {
+					atual.setDireita(novoRamo);
+					novoRamo = null;
+				}
+			}
+
+			}else  {
+	
+			if (atual.getEsquerda() == null) {
+				novoRamo = criarNovoRamo(atual);
+			} else {
+				novoRamo = proximoNo(atual.getEsquerda());
+				if (novoRamo != null) {
+					atual.setEsquerda(novoRamo);
+					novoRamo = null;
+				}
+			}
+		}	
+			
+		return novoRamo;
+	}
+	
+	
+
+	public No criarNovoRamo(No atual) {
+
+		String novoValor = Mensageiro.desistir();
+
+		if (novoValor != null) {
+			novoValor = novoValor.trim();
+
+			if (!novoValor.equals("")) {
+
+				No novo = new No(new Prato(novoValor), null, null);
+				String caracteristica = Mensageiro.completeAFrase(novoValor, atual.getObjetoGenerico().getDescricao());
+
+				No novoRamo = new No(new Categoria(caracteristica), novo, atual);
+
+				return novoRamo;
+			}
+		}
+		return null;
+
+	}
+}

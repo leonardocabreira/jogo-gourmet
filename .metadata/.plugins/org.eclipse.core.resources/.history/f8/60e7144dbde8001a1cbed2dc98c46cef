@@ -1,0 +1,78 @@
+package controller;
+
+import model.No;
+import util.FactoryGame;
+import view.Mensageiro;
+
+public class ControllerEngineGame {
+
+	private No raiz;
+
+	public ControllerEngineGame() {
+		raiz = FactoryGame.factoryGame();
+	}
+
+	public void start() {
+
+		proximo(raiz);
+
+	}
+
+	public No proximo(No atual) {
+
+		int escolha = Mensageiro.Perguntar(atual.getDescricao());
+		
+		No novoRamo;
+		
+		
+		if (escolha == 0 ) {
+		
+			if (atual.getDireita() == null) {
+				Mensageiro.mensagem("Acertei Novamente!", "Jogo Gourmet", "OK", "Cancelar");
+				novoRamo = null;
+				
+			} else {
+				novoRamo = proximo(atual.getDireita());
+				if (novoRamo != null) {
+					atual.setDireita(novoRamo);
+					novoRamo = null;
+				}
+			}
+
+			}else  {
+	
+			if (atual.getEsquerda() == null) {
+				novoRamo = criarNovoRamo(atual);
+			} else {
+				novoRamo = proximo(atual.getEsquerda());
+				if (novoRamo != null) {
+					atual.setEsquerda(novoRamo);
+					novoRamo = null;
+				}
+			}
+		}	
+			
+		return novoRamo;
+	}
+
+	public No criarNovoRamo(No atual) {
+
+		String novoValor = Mensageiro.desistir();
+
+		if (novoValor != null) {
+			novoValor = novoValor.trim();
+
+			if (!novoValor.equals("")) {
+
+				No novo = new No(novoValor, null, null);
+				String caracteristica = Mensageiro.completeAFrase(novoValor, atual.getDescricao());
+
+				No novoRamo = new No(caracteristica, novo, atual);
+
+				return novoRamo;
+			}
+		}
+		return null;
+
+	}
+}
